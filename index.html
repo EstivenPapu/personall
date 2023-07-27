@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estiven Bedoya Sierra - Desarrollador Web</title>
+  <style>
+    :root {
+        --color1: #B1D0E0 ;
+        --color2: #6998AB ;
+        --color3: #406882 ;
+        --color4: #1A374D ;
+    }
+    /* Estilos globales */
+    body {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: var(--color1);
+    }
+    /* Cabecera */
+    header {
+      background-color: var(--color4);
+      color: black;
+      padding: 2rem;
+      text-align: center;
+    
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+  
+    /* Navegación */
+    nav {
+      background-color: var(--color3);
+      text-align: center;
+    }
+    nav a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  color: black;
+  text-decoration: none;
+  position: relative;
+  z-index: 0;
+ 
+}
+
+nav a::before,
+nav a::after {
+  content: "";
+  position: absolute;
+  top: 0; /* Colocamos los pseudo-elementos en la parte superior */
+  left: 0;
+  width: 100%;
+  height: 0; /* Altura inicial cero */
+  background-color: var(--color4);
+  transition: height 0.6s ease; /* Transición para la animación */
+  z-index: -1;
+}
+nav a:hover {
+  
+  color: var(--color2);
+}
+nav a:hover::before,
+nav a:hover::after {
+  height: 100%; /* Altura al hacer hover */
+  
+} 
+
+
+
+    /* Secciones */
+    .section {
+      padding: 4rem;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+    }
+    .section p {
+      font-size: 1.2rem;
+    }
+    /* Proyectos */
+    .project {
+      margin-bottom: 2rem;
+    }
+    .project h3 {
+      font-size: 1.8rem;
+      margin: 1rem 0;
+    }
+    .project p {
+      font-size: 1.2rem;
+    }
+    /* Pie de página */
+    footer {
+      background-color: var(--color4);
+      color: var(--color2); 
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Estiven Bedoya</h1>
+    <p>Desarrollador Web</p>
+  </header>
+
+  <nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#sobremi">Sobre mí</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <div id="inicio" class="section">
+    <h2>Bienvenido a mi sitio web</h2>
+    <p>Hola, soy Estiven, un apasionado desarrollador web con experiencia en Java, HTML, CSS, JSP y SQL. ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!</p>
+    <p>Como entusiasta de la programación, siempre estoy en busca de nuevos desafíos que me permitan seguir aprendiendo y creciendo en esta emocionante industria.</p>
+    <p>En este sitio, encontrarás detalles sobre mis proyectos más recientes y cómo abordo los diferentes problemas de desarrollo. Además, podrás conocer más sobre mi historia y el camino que me ha llevado a convertirme en la persona que soy hoy.</p>
+    <p>La tecnología es mi pasión y me dedico a crear soluciones creativas y eficientes que impulsen la innovación y mejoren la experiencia del usuario. Siempre estoy abierto a colaborar en proyectos interesantes y desafiantes, así que no dudes en contactarme si crees que puedo aportar valor a tu equipo.</p>
+    <p>¡Espero que disfrutes navegando por mi sitio web y descubriendo más sobre mi trabajo y experiencia como desarrollador web!</p> 
+  </div>
+
+  <div id="proyectos" class="section">
+    <h2>Proyectos Destacados</h2>
+    <div class="project">
+      <h3>¡Snake Adventures: La Culebrita Hambrienta!</h3>
+      <p>
+        Duración del desarrollo: Casi 4 semanas<br>
+        ¡Bienvenido a "Snake Adventures", una emocionante y deliciosa aventura que ha sido el resultado de semanas de duro trabajo y diversión! Prepárate para entrar en el apasionante mundo de esta culebrita hambrienta en busca de suculentas fruticas.
+      </p>
+      <p>
+        Aunque pueda parecer un juego sencillo, la realidad es que desarrollar "Snake Adventures" ha sido un viaje lleno de retos, ¡pero también de sorpresas y risas! Desde el primer mordisco a una suculenta manzana, hasta el esquivar hábilmente tu propio cuerpo, cada paso ha sido una emocionante travesía.
+      </p>
+      <p>
+        "Snake Adventures" nació de la combinación de mi creatividad y la ayuda de valiosos tutoriales en YouTube. Gracias a ellos, dominé la lógica del juego, dando vida a la culebrita, su movimiento serpenteante, colisiones jugosas y la aleatoriedad de las deliciosas fruticas que encuentra en su camino.
+      </p>
+      <p>
+        Además, para darle ese toque único, he sido el responsable de diseñar tanto la parte visual del juego, llenándola de colores vibrantes y personajes adorables, como la implementación de una base de datos para registrar las puntuaciones de los aventureros que logran sobrevivir y crecer junto a nuestra amiguita reptil.
+      </p>
+      <p>
+        Este fascinante proyecto me abrió las puertas a las maravillas de las bases de datos, y la elección de utilizar SQLite fue un acierto. A través de este camino, descubrí cómo las listas se vuelven vínculos estrechos, cómo se invocan a las clases como auténticos trucos de magia, y me sorprendí gratamente con las clases ocultas del JDK, aquellas que agregan sonidos chispeantes y gráficos encantadores al mundo de la serpiente.
+      </p>
+      <p>
+        Ahora, es tu turno, aventurero. Únete a "Snake Adventures" y acompaña a nuestra culebrita hambrienta en esta divertida y emocionante experiencia. ¡Adelante, desliza por el tablero, recoge fruticas y demuestra tus habilidades para convertirte en el rey de la serpiente!
+      </p>
+      <a href="https://github.com/EstivenPapu/Snakeadventure.git">¡VAMOS!</a>
+    </div>
+    
+
+  <div id="sobremi" class="section">
+    <h2>Sobre mí</h2>
+    <p>Aquí puedes escribir sobre tu historia, tus logros y tus habilidades en el desarrollo web.</p>
+  </div>
+
+  <div id="contacto" class="section">
+    <h2>Contacto</h2>
+    <p>Puedes contactarme a través de correo electrónico o mis redes sociales:</p>
+    <p>Email: bboypapufull7@gmail.com</p>
+    <p>Whatsapp: +573122810586 </p>
+    <!-- Agrega más detalles de contacto si lo deseas -->
+  </div>
+
+  <footer>
+    <p>&copy; 2023 StivenPapu. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
