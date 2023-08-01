@@ -4,6 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Estiven Bedoya Sierra - Desarrollador Web</title>
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const sections = document.querySelectorAll(".section");
+  
+      function checkSections() {
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          const offset = 100; // Ajusta este valor para controlar cuándo aparecen las secciones
+  
+          if (rect.top <= window.innerHeight - offset && rect.bottom >= 0) {
+            section.style.opacity = 1;
+            section.style.visibility = "visible";
+            section.style.transform = "translateY(0)";
+            section.style.transition = "opacity 1s, transform 1s"; // Añadimos una transición suave
+          } else {
+            section.style.opacity = 0;
+            section.style.visibility = "hidden";
+            section.style.transform = "translateY(50px)"; // Ajusta este valor para controlar la distancia de desplazamiento
+            section.style.transition = "none"; // Eliminamos la transición cuando la sección está fuera del área visible
+          }
+        });
+      }
+  
+      window.addEventListener("scroll", checkSections);
+      window.addEventListener("resize", checkSections);
+  
+      checkSections(); // Comprueba el estado de las secciones al cargar la página
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+  const languajes = document.querySelectorAll(".lenguaje");
+
+  // Objeto que mapea los nombres de los lenguajes a las rutas de las imágenes
+  const lenguajeImages = {
+    Java: "java.png",
+    HTML: "html-5.png",
+    CSS: "css-3.png",
+    JSP: "ruta-de-la-imagen-jsp.png",
+    SQL: "sql.png",
+    // Agrega aquí más lenguajes y rutas de imágenes según sea necesario
+  };
+
+  lenguajes.forEach((lenguaje) => {
+    const lenguajeName = lenguaje.textContent.trim();
+    const imagePath = lenguajeImages[lenguajeName];
+
+    if (imagePath) {
+      const imageElement = document.createElement("img");
+      imageElement.src = imagePath;
+      imageElement.classList.add("lenguaje-image");
+
+      // Agregar la imagen al elemento span
+      lenguaje.appendChild(imageElement);
+
+      // Agregar eventos para mostrar/ocultar la imagen al hacer hover
+      lenguaje.addEventListener("mouseenter", () => {
+        imageElement.style.visibility = "visible";
+      });
+
+      lenguaje.addEventListener("mouseleave", () => {
+        imageElement.style.visibility = "hidden";
+      });
+    }
+  });
+});
+  </script>
   <style>
     :root {
         --color1: #B1D0E0 ;
@@ -11,6 +77,31 @@
         --color3: #406882 ;
         --color4: #1A374D ;
     }
+    @keyframes waveAnimation {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-10px); }
+      75% { transform: translateY(-10px); }
+    }
+    @keyframes shadow-animation {
+    0% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+    }
+    100% {
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    }
+  }
+  /* Creamos una animación para el efecto de desvanecimiento */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
     /* Estilos globales */
     body {
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
@@ -21,17 +112,30 @@
     }
     /* Cabecera */
     header {
+      display: grid;
       background-color: var(--color4);
       color: black;
       padding: 2rem;
       text-align: center;
+     
     
     }
     header h1 {
       font-size: 3rem;
       margin: 0;
+      display: inline-block;
+      animation: shadow-animation 2s ease-in-out infinite;
     }
   
+    #particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+    
     /* Navegación */
     nav {
       background-color: var(--color3);
@@ -69,13 +173,34 @@ nav a:hover::after {
   
 } 
 
+.language-image {
+  position: absolute;
+  width: 30px; /* Ajusta el tamaño de la imagen aquí */
+  height: 30px;
+  top: -40px; /* Ajusta la posición vertical de la imagen con respecto al texto */
+  left: 50%; /* Ajusta la posición horizontal de la imagen con respecto al texto */
+  transform: translateX(-50%);
+  visibility: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
 
-
+/* Estilo adicional para la imagen */
+.language-image:hover {
+  width: 40px; /* Ajusta el tamaño de la imagen al hacer hover */
+  height: 40px;
+  visibility: visible;
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
     /* Secciones */
+
     .section {
       padding: 4rem;
       text-align: center;
+    
     }
+   
     .section h2 {
       font-size: 2.5rem;
     }
@@ -96,16 +221,20 @@ nav a:hover::after {
     /* Pie de página */
     footer {
       background-color: var(--color4);
-      color: var(--color2); 
+      color: var(--color2);
       text-align: center;
       padding: 1rem;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div id="particles-js"></div>
+  <header >
+
+   
     <h1>Estiven Bedoya</h1>
     <p>Desarrollador Web</p>
+   
   </header>
 
   <nav>
@@ -115,16 +244,17 @@ nav a:hover::after {
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <div id="inicio" class="section">
+  <div id="inicio" class="section" data-section="inicio">
+    
     <h2>Bienvenido a mi sitio web</h2>
-    <p>Hola, soy Estiven, un apasionado desarrollador web con experiencia en Java, HTML, CSS, JSP y SQL. ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!</p>
+    <p>Hola, soy Estiven, un apasionado desarrollador web con experiencia en: <span class="lenguaje">Java</span>, <span class="lenguaje">HTML</span>, <span class="lenguaje">CSS</span>, <span class="lenguaje">JSP</span> y <span class="lenguaje">SQL</span>. ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!</p>
     <p>Como entusiasta de la programación, siempre estoy en busca de nuevos desafíos que me permitan seguir aprendiendo y creciendo en esta emocionante industria.</p>
     <p>En este sitio, encontrarás detalles sobre mis proyectos más recientes y cómo abordo los diferentes problemas de desarrollo. Además, podrás conocer más sobre mi historia y el camino que me ha llevado a convertirme en la persona que soy hoy.</p>
     <p>La tecnología es mi pasión y me dedico a crear soluciones creativas y eficientes que impulsen la innovación y mejoren la experiencia del usuario. Siempre estoy abierto a colaborar en proyectos interesantes y desafiantes, así que no dudes en contactarme si crees que puedo aportar valor a tu equipo.</p>
     <p>¡Espero que disfrutes navegando por mi sitio web y descubriendo más sobre mi trabajo y experiencia como desarrollador web!</p> 
   </div>
 
-  <div id="proyectos" class="section">
+  <div id="proyectos" class="section" data-section="proyectos">
     <h2>Proyectos Destacados</h2>
     <div class="project">
       <h3>¡Snake Adventures: La Culebrita Hambrienta!</h3>
@@ -151,12 +281,31 @@ nav a:hover::after {
     </div>
     
 
-  <div id="sobremi" class="section">
-    <h2>Sobre mí</h2>
-    <p>Aquí puedes escribir sobre tu historia, tus logros y tus habilidades en el desarrollo web.</p>
-  </div>
+    <div id="sobremi" class="section" data-section="sobremi">
+      <h2>Sobre Mí</h2>
+      <p>Mi historia en el mundo de la programación comenzó en el colegio, donde, a pesar de no tener acceso a una computadora propia, descargaba aplicaciones para aprender sobre programación. Escondido en la clase de tecnología, aprendía en los computadores donados por el gobierno. Aunque fue difícil avanzar sin un computador, no dejé que eso me detuviera.</p>
+    
+      <p>Luego, decidí seguir mi pasión y me uní a un curso gratuito de "Creación de videojuegos en Unity 3D" en el Sena. A pesar de las adversidades, logré hacer un juego sencillo y me destacé entre 37 personas, obteniendo el segundo lugar. Mi perseverancia y dedicación me valieron el reconocimiento y el respeto de mi profesora.</p>
+    
+      <p>Después de un tiempo, como adulto, trabajando en una empresa de confección, conocí a alguien que avivó mi pasión por la programación mostrándome sus increíbles proyectos. Aunque seguía sin tener un computador propio, nunca dejé de aprender. Compré un cuaderno y anotaba todo lo que podía aprender de tutoriales y cursos gratuitos en YouTube.</p>
+    
+      <p>Finalmente, conseguí un computador de segunda mano y ahí fue cuando me enamoré completamente de este hermoso campo. El dinero, el tiempo y la salud fueron desafíos que enfrenté, pero nunca me rendí y siempre busqué superarlos.</p>
+    
+      <p>Entre mis proyectos más significativos están la creación de "Snake Adventures: La Culebrita Hambrienta" y una aplicación web para empresas de confección. Estos proyectos me desafiaron y me enseñaron valiosas lecciones, aumentando mi capacidad de resolución de problemas y mi pasión por la programación.</p>
+    
+      <p>Lo que me motiva es poder plasmar mis ideas en la programación y crear todo lo que imagino. Mi curiosidad y velocidad para aprender son características que me diferencian de otros programadores.</p>
+    
+      <p>Mi misión es alcanzar tranquilidad financiera y emocional, y mi sueño es crear una aplicación que pueda cambiar o mejorar el mundo.</p>
+    
+      <p>Como consejo, siempre animo a otros a ser curiosos y nunca dejar de aprender. Para comenzar en el mundo de la programación, les sugiero que empiecen con Java, ya que abre muchas posibilidades.</p>
+    
+      <p>Además de la programación, mis pasatiempos incluyen el breakdance, la acrobacia y el parkour. Quiero aprender de todo y seguir creciendo como desarrollador en todos los aspectos de la programación.</p>
+    
+      <p>Estoy emocionado de seguir aprendiendo y creciendo en esta emocionante industria y de aportar mi pasión y habilidades a proyectos innovadores.</p>
+    </div>
+    
 
-  <div id="contacto" class="section">
+  <div id="contacto" class="section" data-section="contacto">
     <h2>Contacto</h2>
     <p>Puedes contactarme a través de correo electrónico o mis redes sociales:</p>
     <p>Email: bboypapufull7@gmail.com</p>
@@ -167,5 +316,112 @@ nav a:hover::after {
   <footer>
     <p>&copy; 2023 StivenPapu. Todos los derechos reservados.</p>
   </footer>
+  <script>
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80, // Cambia el número de partículas aquí
+          density: {
+            enable: true,
+            value_area: 800, // Controla el tamaño del área donde aparecen las partículas
+          },
+        },
+        color: {
+          value: "#3d3636", // Cambia el color de las partículas
+        },
+        shape: {
+          type: "circle", // Cambia la forma de las partículas
+          stroke: {
+            width: 0,
+            color: "#000000",
+          },
+          polygon: {
+            nb_sides: 5,
+          },
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false,
+          },
+        },
+        size: {
+          value: 3, // Cambia el tamaño de las partículas
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false,
+          },
+        },
+        line_linked: {
+          enable: true,
+          distance: 150, // Controla la distancia entre partículas conectadas por líneas
+          color: "#3d3636",
+          opacity: 0.4,
+          width: 1,
+        },
+        move: {
+          enable: true,
+          speed: 6, // Cambia la velocidad de movimiento de las partículas
+          direction: "none",
+          random: false,
+          straight: false,
+          out_mode: "out",
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200,
+          },
+        },
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse", // Cambia el modo de interacción al pasar el cursor sobre las partículas
+          },
+          onclick: {
+            enable: true,
+            mode: "push", // Cambia el modo de interacción al hacer clic sobre las partículas
+          },
+          resize: true,
+        },
+        modes: {
+          grab: {
+            distance: 400,
+            line_linked: {
+              opacity: 1,
+            },
+          },
+          bubble: {
+            distance: 400,
+            size: 40,
+            duration: 2,
+            opacity: 8,
+            speed: 3,
+          },
+          repulse: {
+            distance: 100, // Controla la intensidad de la repulsión al pasar el cursor sobre las partículas
+            duration: 0.4,
+          },
+          push: {
+            particles_nb: 4, // Controla el número de partículas creadas al hacer clic
+          },
+          remove: {
+            particles_nb: 2,
+          },
+        },
+      },
+      retina_detect: true,
+    });
+  </script>
 </body>
 </html>
