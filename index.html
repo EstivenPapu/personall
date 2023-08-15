@@ -18,7 +18,7 @@
             section.style.opacity = 1;
             section.style.visibility = "visible";
             section.style.transform = "translateY(0)";
-            section.style.transition = "opacity 1s, transform 1s"; // Añadimos una transición suave
+            section.style.transition = "opacity 1s, transform 2s"; // Añadimos una transición suave
           } else {
             section.style.opacity = 0;
             section.style.visibility = "hidden";
@@ -33,42 +33,7 @@
   
       checkSections(); // Comprueba el estado de las secciones al cargar la página
     });
-    document.addEventListener("DOMContentLoaded", function () {
-  const languajes = document.querySelectorAll(".lenguaje");
-
-  // Objeto que mapea los nombres de los lenguajes a las rutas de las imágenes
-  const lenguajeImages = {
-    Java: "java.png",
-    HTML: "html-5.png",
-    CSS: "css-3.png",
-    JSP: "ruta-de-la-imagen-jsp.png",
-    SQL: "sql.png",
-    // Agrega aquí más lenguajes y rutas de imágenes según sea necesario
-  };
-
-  lenguajes.forEach((lenguaje) => {
-    const lenguajeName = lenguaje.textContent.trim();
-    const imagePath = lenguajeImages[lenguajeName];
-
-    if (imagePath) {
-      const imageElement = document.createElement("img");
-      imageElement.src = imagePath;
-      imageElement.classList.add("lenguaje-image");
-
-      // Agregar la imagen al elemento span
-      lenguaje.appendChild(imageElement);
-
-      // Agregar eventos para mostrar/ocultar la imagen al hacer hover
-      lenguaje.addEventListener("mouseenter", () => {
-        imageElement.style.visibility = "visible";
-      });
-
-      lenguaje.addEventListener("mouseleave", () => {
-        imageElement.style.visibility = "hidden";
-      });
-    }
-  });
-});
+  
   </script>
   <style>
     :root {
@@ -172,27 +137,19 @@ nav a:hover::after {
   height: 100%; /* Altura al hacer hover */
   
 } 
-
-.language-image {
-  position: absolute;
-  width: 30px; /* Ajusta el tamaño de la imagen aquí */
-  height: 30px;
-  top: -40px; /* Ajusta la posición vertical de la imagen con respecto al texto */
-  left: 50%; /* Ajusta la posición horizontal de la imagen con respecto al texto */
-  transform: translateX(-50%);
-  visibility: hidden;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+.contenedor{
+  display: flex;
+  justify-content: center;
+}
+.contenedordeimagenes {
+  margin: 20px;
+}
+.lenguajes{
+  width: 40px;
 }
 
-/* Estilo adicional para la imagen */
-.language-image:hover {
-  width: 40px; /* Ajusta el tamaño de la imagen al hacer hover */
-  height: 40px;
-  visibility: visible;
-  z-index: 1;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
+
+
     /* Secciones */
 
     .section {
@@ -247,37 +204,101 @@ nav a:hover::after {
   <div id="inicio" class="section" data-section="inicio">
     
     <h2>Bienvenido a mi sitio web</h2>
-    <p>Hola, soy Estiven, un apasionado desarrollador web con experiencia en: <span class="lenguaje">Java</span>, <span class="lenguaje">HTML</span>, <span class="lenguaje">CSS</span>, <span class="lenguaje">JSP</span> y <span class="lenguaje">SQL</span>. ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!</p>
-    <p>Como entusiasta de la programación, siempre estoy en busca de nuevos desafíos que me permitan seguir aprendiendo y creciendo en esta emocionante industria.</p>
-    <p>En este sitio, encontrarás detalles sobre mis proyectos más recientes y cómo abordo los diferentes problemas de desarrollo. Además, podrás conocer más sobre mi historia y el camino que me ha llevado a convertirme en la persona que soy hoy.</p>
-    <p>La tecnología es mi pasión y me dedico a crear soluciones creativas y eficientes que impulsen la innovación y mejoren la experiencia del usuario. Siempre estoy abierto a colaborar en proyectos interesantes y desafiantes, así que no dudes en contactarme si crees que puedo aportar valor a tu equipo.</p>
-    <p>¡Espero que disfrutes navegando por mi sitio web y descubriendo más sobre mi trabajo y experiencia como desarrollador web!</p> 
+    <p>
+      Hola, soy Estiven, un apasionado desarrollador web con experiencia en:
+    </p>
+    <div class="contenedor">
+      <div class="contenedordeimagenes">
+        <img src="java.png" alt="" class="lenguajes"><br>
+        <span>Java</span>
+      </div>
+      <div class="contenedordeimagenes">
+        <img src="js.png" alt="" class="lenguajes" ><br>
+        <span>JavaScript</span>
+      </div>
+      <div class="contenedordeimagenes">
+        <img src="html-5.png" alt="" class="lenguajes" ><br>
+        <span>HTML</span>
+      </div>
+       <div class="contenedordeimagenes">
+        <img src="css-3.png" alt="" class="lenguajes" ><br>
+        <span>Css</span>
+      </div>
+      <div class="contenedordeimagenes">
+        <img src="sql.png" alt="" class="lenguajes" ><br>
+        <span>MySQL, SQLite</span>
+      </div>
+      <div class="contenedordeimagenes">
+        <img src="Spring.png" alt="" class="lenguajes" ><br>
+        <span>Spring Framework</span>
+      </div>
+    </div>
+    <span>Y pronto habran mas....</span>
+    <p> 
+      ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!
+    </p>
+    <p>
+      Como entusiasta de la programación, siempre estoy en busca de nuevos desafíos que me permitan seguir aprendiendo y creciendo en esta emocionante industria.
+    </p>
+    <p>
+      En este sitio, encontrarás detalles sobre mis proyectos más recientes y cómo abordo los diferentes problemas de desarrollo. Además, podrás conocer más sobre mi historia y el camino que me ha llevado a convertirme en la persona que soy hoy.
+    </p>
+    <p>
+      La tecnología es mi pasión y me dedico a crear soluciones creativas y eficientes que impulsen la innovación y mejoren la experiencia del usuario. Siempre estoy abierto a colaborar en proyectos interesantes y desafiantes, así que no dudes en contactarme si crees que puedo aportar valor a tu equipo.
+    </p>
+    <p>
+      ¡Espero que disfrutes navegando por mi sitio web y descubriendo más sobre mi trabajo y experiencia como desarrollador web!
+    </p> 
   </div>
+ 
+
 
   <div id="proyectos" class="section" data-section="proyectos">
     <h2>Proyectos Destacados</h2>
     <div class="project">
-      <h3>¡Snake Adventures: La Culebrita Hambrienta!</h3>
+      <h3>¡Snake Adventures!</h3>
       <p>
         Duración del desarrollo: Casi 4 semanas<br>
         ¡Bienvenido a "Snake Adventures", una emocionante y deliciosa aventura que ha sido el resultado de semanas de duro trabajo y diversión! Prepárate para entrar en el apasionante mundo de esta culebrita hambrienta en busca de suculentas fruticas.
       </p>
+      <img src="snake1.png" alt="menuprincipal">
       <p>
         Aunque pueda parecer un juego sencillo, la realidad es que desarrollar "Snake Adventures" ha sido un viaje lleno de retos, ¡pero también de sorpresas y risas! Desde el primer mordisco a una suculenta manzana, hasta el esquivar hábilmente tu propio cuerpo, cada paso ha sido una emocionante travesía.
       </p>
       <p>
         "Snake Adventures" nació de la combinación de mi creatividad y la ayuda de valiosos tutoriales en YouTube. Gracias a ellos, dominé la lógica del juego, dando vida a la culebrita, su movimiento serpenteante, colisiones jugosas y la aleatoriedad de las deliciosas fruticas que encuentra en su camino.
       </p>
+      <img src="snake2.png" alt="ventanadejuego">
       <p>
         Además, para darle ese toque único, he sido el responsable de diseñar tanto la parte visual del juego, llenándola de colores vibrantes y personajes adorables, como la implementación de una base de datos para registrar las puntuaciones de los aventureros que logran sobrevivir y crecer junto a nuestra amiguita reptil.
       </p>
       <p>
         Este fascinante proyecto me abrió las puertas a las maravillas de las bases de datos, y la elección de utilizar SQLite fue un acierto. A través de este camino, descubrí cómo las listas se vuelven vínculos estrechos, cómo se invocan a las clases como auténticos trucos de magia, y me sorprendí gratamente con las clases ocultas del JDK, aquellas que agregan sonidos chispeantes y gráficos encantadores al mundo de la serpiente.
       </p>
+      <img src="snake3.png" alt="ventanadepuntuaciones">
       <p>
         Ahora, es tu turno, aventurero. Únete a "Snake Adventures" y acompaña a nuestra culebrita hambrienta en esta divertida y emocionante experiencia. ¡Adelante, desliza por el tablero, recoge fruticas y demuestra tus habilidades para convertirte en el rey de la serpiente!
       </p>
-      <a href="https://github.com/EstivenPapu/Snakeadventure.git">¡VAMOS!</a>
+      <a href="https://github.com/EstivenPapu/Snakeadventure.git">¡link de GitHub!</a>
+
+      <div class="project">
+        <h3>¡Task Good Order!</h3>
+        <p> 
+          En mi viaje de desarrollo, exploré el emocionante mundo de Spring Framework y Java para crear una completa aplicación de gestión de tareas. En esta plataforma, puedes agregar, ver, editar y eliminar tareas, así como marcarlas como completadas. La utilización de Spring como backend y Thymeleaf para el frontend, junto con JPA y MySQL para la comunicación con la base de datos, me permitió construir esta funcionalidad de manera eficiente y escalable.
+        </p>
+        <img src="listadetareas1.png" alt="" width="500px">
+        <img src="listadetareas2.png" alt="" width="500px">
+        <p>
+          Durante este desafiante proyecto, tuve la oportunidad de sumergirme en el ecosistema de Spring, aprender sobre la inyección de dependencias, crear controladores y servicios, gestionar la persistencia de datos y aplicar operaciones CRUD. Esta experiencia no solo fortaleció mis habilidades de desarrollo, sino que también me demostró la importancia de la práctica y el aprendizaje continuo en el mundo de la programación.
+        </p>
+        <img src="listadetareas3.png" alt="" width="500px">
+        <p>
+          Esta aplicación es un testimonio de mi determinación para superar obstáculos y aprender nuevas tecnologías. ¡Explora la aplicación y descubre cómo Spring y Java se unen para brindar una experiencia de gestión de tareas fluida y eficiente!
+        </p>
+        <!-- Agrega el enlace a tu repositorio de GitHub aquí -->
+        <a href="https://github.com/EstivenPapu/listadetareas.git">¡Link a GitHub!</a>
+      </div> 
+      
     </div>
     
 
