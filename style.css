@@ -36,7 +36,7 @@ from {
 body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
     line-height: 1.6;
-    margin: 0;
+    margin: 10px;
     padding: 0;
     background-color: var(--color1);
 }
@@ -113,7 +113,7 @@ nav a:hover::after {
 } 
 
 .section {
-    padding: 4rem;
+    padding: 3rem;
     text-align: start;
 }
 
