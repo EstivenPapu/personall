@@ -138,12 +138,6 @@ nav a:hover::after {
     font-size: 1.2rem;
 }
 
-.project-gallery {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 .contenedor{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -173,9 +167,15 @@ nav a:hover::after {
     background-color: var(--color1);
     border: none;
     padding: 5px;
-    width: calc(33.33% - 20px); /* Para mostrar 3 proyectos por fila */
     margin-bottom: 20px;
     text-align: center;
+}
+
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
 }
 
 .project img {
