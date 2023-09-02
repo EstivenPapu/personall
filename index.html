@@ -1,334 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Estiven Bedoya Sierra - Desarrollador Web</title>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const sections = document.querySelectorAll(".section");
-  
-      function checkSections() {
-        sections.forEach((section) => {
-          const rect = section.getBoundingClientRect();
-          const offset = 100; // Ajusta este valor para controlar cuándo aparecen las secciones
-  
-          if (rect.top <= window.innerHeight - offset && rect.bottom >= 0) {
-            section.style.opacity = 1;
-            section.style.visibility = "visible";
-            section.style.transform = "translateY(0)";
-            section.style.transition = "opacity 1s, transform 2s"; // Añadimos una transición suave
-          } else {
-            section.style.opacity = 0;
-            section.style.visibility = "hidden";
-            section.style.transform = "translateY(50px)"; // Ajusta este valor para controlar la distancia de desplazamiento
-            section.style.transition = "none"; // Eliminamos la transición cuando la sección está fuera del área visible
-          }
-        });
-      }
-  
-      window.addEventListener("scroll", checkSections);
-      window.addEventListener("resize", checkSections);
-  
-      checkSections(); // Comprueba el estado de las secciones al cargar la página
-    });
-  
-  </script>
-  <style>
-    :root {
-        --color1: #B1D0E0 ;
-        --color2: #6998AB ;
-        --color3: #406882 ;
-        --color4: #1A374D ;
-    }
-    @keyframes waveAnimation {
-      0%, 100% { transform: translateY(0); }
-      25% { transform: translateY(-10px); }
-      75% { transform: translateY(-10px); }
-    }
-    @keyframes shadow-animation {
-    0% {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    }
-    50% {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
-    }
-    100% {
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-    }
-  }
-  /* Creamos una animación para el efecto de desvanecimiento */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-    /* Estilos globales */
-    body {
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: var(--color1);
-    }
-    /* Cabecera */
-    header {
-      display: grid;
-      background-color: var(--color4);
-      color: black;
-      padding: 2rem;
-      text-align: center;
-     
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estiven Bedoya Sierra - Desarrollador Web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
     
-    }
-    header h1 {
-      font-size: 3rem;
-      margin: 0;
-      display: inline-block;
-      animation: shadow-animation 2s ease-in-out infinite;
-    }
-  
-    #particles-js {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-    
-    /* Navegación */
-    nav {
-      background-color: var(--color3);
-      text-align: center;
-    }
-    nav a {
-  display: inline-block;
-  padding: 1rem 2rem;
-  color: black;
-  text-decoration: none;
-  position: relative;
-  z-index: 0;
- 
-}
-
-nav a::before,
-nav a::after {
-  content: "";
-  position: absolute;
-  top: 0; /* Colocamos los pseudo-elementos en la parte superior */
-  left: 0;
-  width: 100%;
-  height: 0; /* Altura inicial cero */
-  background-color: var(--color4);
-  transition: height 0.6s ease; /* Transición para la animación */
-  z-index: -1;
-}
-nav a:hover {
-  
-  color: var(--color2);
-}
-nav a:hover::before,
-nav a:hover::after {
-  height: 100%; /* Altura al hacer hover */
-  
-} 
-.contenedor{
-  display: flex;
-  justify-content: center;
-}
-.contenedordeimagenes {
-  margin: 20px;
-}
-.lenguajes{
-  width: 40px;
-}
-
-
-
-    /* Secciones */
-
-    .section {
-      padding: 4rem;
-      text-align: center;
-    
-    }
-   
-    .section h2 {
-      font-size: 2.5rem;
-    }
-    .section p {
-      font-size: 1.2rem;
-    }
-    /* Proyectos */
-    .project {
-      margin-bottom: 2rem;
-    }
-    .project h3 {
-      font-size: 1.8rem;
-      margin: 1rem 0;
-    }
-    .project p {
-      font-size: 1.2rem;
-    }
-    /* Pie de página */
-    footer {
-      background-color: var(--color4);
-      color: var(--color2);
-      text-align: center;
-      padding: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <div id="particles-js"></div>
-  <header >
-
-   
-    <h1>Estiven Bedoya</h1>
-    <p>Desarrollador Web</p>
-   
-  </header>
-
-  <nav>
-    <a href="#inicio">Inicio</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#sobremi">Sobre mí</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <div id="inicio" class="section" data-section="inicio">
-    
-    <h2>Bienvenido a mi sitio web</h2>
-    <p>
-      Hola, soy Estiven, un apasionado desarrollador web con experiencia en:
-    </p>
-    <div class="contenedor">
-      <div class="contenedordeimagenes">
-        <img src="java.png" alt="" class="lenguajes"><br>
-        <span>Java</span>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <header >
+      <div>
+        <h1>Estiven Bedoya</h1>
+        <p>Desarrollador Web</p>
       </div>
-      <div class="contenedordeimagenes">
-        <img src="js.png" alt="" class="lenguajes" ><br>
-        <span>JavaScript</span>
+
+      <div class="perfil">
+        <img  id="perfil-img" src="./multimedia/perfil1.png" alt="perfil1">
       </div>
-      <div class="contenedordeimagenes">
-        <img src="html-5.png" alt="" class="lenguajes" ><br>
-        <span>HTML</span>
+
+    </header>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobremi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div id="inicio" class="section" data-section="inicio">
+      <h2>Bienvenido a mi sitio web</h2>
+      <p>
+        Hola, soy Estiven, un apasionado desarrollador web con experiencia en:
+      </p>
+      <div class="contenedor">
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/java.png" alt="" class="lenguajes"><br>
+          <span>Java</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/js.png" alt="" class="lenguajes" ><br>
+          <span>JavaScript</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/html-5.png" alt="" class="lenguajes" ><br>
+          <span>HTML</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/css-3.png" alt="" class="lenguajes" ><br>
+          <span>Css</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/sql.png" alt="" class="lenguajes" ><br>
+          <span>MySQL, SQLite</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/Spring.png" alt="" class="lenguajes" ><br>
+          <span>Spring Framework</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/angular-icon.png" alt="" class="lenguajes" ><br>
+          <span>Angular</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/jsp.png" alt="" class="lenguajes" ><br>
+          <span>JSP</span>
+        </div>
+        <div class="contenedordeimagenes">
+          <img src="./multimedia/git.png" alt="" class="lenguajes" ><br>
+          <span>Git</span>
+        </div>
       </div>
-       <div class="contenedordeimagenes">
-        <img src="css-3.png" alt="" class="lenguajes" ><br>
-        <span>Css</span>
-      </div>
-      <div class="contenedordeimagenes">
-        <img src="sql.png" alt="" class="lenguajes" ><br>
-        <span>MySQL, SQLite</span>
-      </div>
-      <div class="contenedordeimagenes">
-        <img src="Spring.png" alt="" class="lenguajes" ><br>
-        <span>Spring Framework</span>
-      </div>
-      <div class="contenedordeimagenes">
-        <img src="angular-icon.png" alt="" class="lenguajes" ><br>
-        <span>Angular</span>
+      <span>Y pronto habran mas....</span>
+      <p> 
+        ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!
+      </p>
+      <p>
+        Como entusiasta de la programación, siempre estoy en busca de nuevos desafíos que me permitan seguir aprendiendo y creciendo en esta emocionante industria.
+      </p>
+      <p>
+        En este sitio, encontrarás detalles sobre mis proyectos más recientes y cómo abordo los diferentes problemas de desarrollo. Además, podrás conocer más sobre mi historia y el camino que me ha  llevado a convertirme en la persona que soy hoy.
+      </p>
+      <p>
+        La tecnología es mi pasión y me dedico a crear soluciones creativas y eficientes que impulsen la innovación y mejoren la experiencia del usuario. Siempre estoy abierto a colaborar en  proyectos interesantes y desafiantes, así que no dudes en contactarme si crees que puedo aportar valor a tu equipo.
+      </p>
+      <p>
+        ¡Espero que disfrutes navegando por mi sitio web y descubriendo más sobre mi trabajo y experiencia como desarrollador web!
+      </p> 
+    </div>
+
+
+    <div id="proyectos" class="section" data-section="proyectos">
+      <h2>Proyectos Destacados</h2>
+      <div class="project-gallery">
+        <div class="project">
+          <img src="./multimedia/snake1.png" alt="Snake Adventures">
+          <h3>Snake Adventures</h3>
+          <p>¡Bienvenido a "Snake Adventures"! Prepárate para entrar en el apasionante mundo de esta culebrita hambrienta en busca de suculentas frutas.</p>
+          <a href="https://github.com/EstivenPapu/Snakeadventure.git">aqui</a>
+        </div>
+        <div class="project">
+          <img src="./multimedia/listadetareas1.png" alt="Task Good Order">
+          <h3>Task Good Order</h3>
+          <p>Increible aplicación de gestión de tareas(CRUD) creada con Spring Framework y Java.</p>
+          <a href="https://github.com/EstivenPapu/listadetareas.git">aqui</a>
+        </div>
+        <div class="project">
+          <img src="./multimedia/listaempleados1.png" alt="InfoEmpleados">
+          <h3>InfoEmpleados</h3>
+          <p>Una aplicación de manipulación de información de empleados desarrollada con Angular, HTML y CSS.</p>
+          <a href="https://estivenpapu.github.io/infoempleados/" target="_blank">aqui</a>
+        </div>
+        <div class="project">
+          <img src="./multimedia/laberinto.png" alt="Snake Adv">
+          <h3>Game Maze</h3>
+          <p>¡Bienvenido a este juego de laberinto en el cual puedes probar tus habilidades para ver si puedes escapar de ellos. desarrollada con Angular, Html y Css</p>
+          <a href="https://game-laberinto.vercel.app">aqui</a>
+        </div>
+        <!-- Agrega más proyectos aquí -->
       </div>
     </div>
-    <span>Y pronto habran mas....</span>
-    <p> 
-      ¡Bienvenido a mi espacio digital donde comparto mi trayectoria y proyectos!
-    </p>
-    <p>
-      Como entusiasta de la programación, siempre estoy en busca de nuevos desafíos que me permitan seguir aprendiendo y creciendo en esta emocionante industria.
-    </p>
-    <p>
-      En este sitio, encontrarás detalles sobre mis proyectos más recientes y cómo abordo los diferentes problemas de desarrollo. Además, podrás conocer más sobre mi historia y el camino que me ha llevado a convertirme en la persona que soy hoy.
-    </p>
-    <p>
-      La tecnología es mi pasión y me dedico a crear soluciones creativas y eficientes que impulsen la innovación y mejoren la experiencia del usuario. Siempre estoy abierto a colaborar en proyectos interesantes y desafiantes, así que no dudes en contactarme si crees que puedo aportar valor a tu equipo.
-    </p>
-    <p>
-      ¡Espero que disfrutes navegando por mi sitio web y descubriendo más sobre mi trabajo y experiencia como desarrollador web!
-    </p> 
-  </div>
- 
-
-
-  <div id="proyectos" class="section" data-section="proyectos">
-    <h2>Proyectos Destacados</h2>
-    <div class="project">
-      <h3>¡Snake Adventures!</h3>
-      <p>
-        Duración del desarrollo: Casi 4 semanas<br>
-        ¡Bienvenido a "Snake Adventures", una emocionante y deliciosa aventura que ha sido el resultado de semanas de duro trabajo y diversión! Prepárate para entrar en el apasionante mundo de esta culebrita hambrienta en busca de suculentas fruticas.
-      </p>
-      <img src="snake1.png" alt="menuprincipal">
-      <p>
-        Aunque pueda parecer un juego sencillo, la realidad es que desarrollar "Snake Adventures" ha sido un viaje lleno de retos, ¡pero también de sorpresas y risas! Desde el primer mordisco a una suculenta manzana, hasta el esquivar hábilmente tu propio cuerpo, cada paso ha sido una emocionante travesía.
-      </p>
-      <p>
-        "Snake Adventures" nació de la combinación de mi creatividad y la ayuda de valiosos tutoriales en YouTube. Gracias a ellos, dominé la lógica del juego, dando vida a la culebrita, su movimiento serpenteante, colisiones jugosas y la aleatoriedad de las deliciosas fruticas que encuentra en su camino.
-      </p>
-      <img src="snake2.png" alt="ventanadejuego">
-      <p>
-        Además, para darle ese toque único, he sido el responsable de diseñar tanto la parte visual del juego, llenándola de colores vibrantes y personajes adorables, como la implementación de una base de datos para registrar las puntuaciones de los aventureros que logran sobrevivir y crecer junto a nuestra amiguita reptil.
-      </p>
-      <p>
-        Este fascinante proyecto me abrió las puertas a las maravillas de las bases de datos, y la elección de utilizar SQLite fue un acierto. A través de este camino, descubrí cómo las listas se vuelven vínculos estrechos, cómo se invocan a las clases como auténticos trucos de magia, y me sorprendí gratamente con las clases ocultas del JDK, aquellas que agregan sonidos chispeantes y gráficos encantadores al mundo de la serpiente.
-      </p>
-      <img src="snake3.png" alt="ventanadepuntuaciones">
-      <p>
-        Ahora, es tu turno, aventurero. Únete a "Snake Adventures" y acompaña a nuestra culebrita hambrienta en esta divertida y emocionante experiencia. ¡Adelante, desliza por el tablero, recoge fruticas y demuestra tus habilidades para convertirte en el rey de la serpiente!
-      </p>
-      <a href="https://github.com/EstivenPapu/Snakeadventure.git">¡link de GitHub!</a>
-
-      <div class="project">
-        <h3>¡Task Good Order!</h3>
-        <p> 
-          En mi viaje de desarrollo, exploré el emocionante mundo de Spring Framework y Java para crear una completa aplicación de gestión de tareas. En esta plataforma, puedes agregar, ver, editar y eliminar tareas, así como marcarlas como completadas. La utilización de Spring como backend y Thymeleaf para el frontend, junto con JPA y MySQL para la comunicación con la base de datos, me permitió construir esta funcionalidad de manera eficiente y escalable.
-        </p>
-        <img src="listadetareas1.png" alt="" width="500px">
-        <img src="listadetareas2.png" alt="" width="500px">
-        <p>
-          Durante este desafiante proyecto, tuve la oportunidad de sumergirme en el ecosistema de Spring, aprender sobre la inyección de dependencias, crear controladores y servicios, gestionar la persistencia de datos y aplicar operaciones CRUD. Esta experiencia no solo fortaleció mis habilidades de desarrollo, sino que también me demostró la importancia de la práctica y el aprendizaje continuo en el mundo de la programación.
-        </p>
-        <img src="listadetareas3.png" alt="" width="500px">
-        <p>
-          Esta aplicación es un testimonio de mi determinación para superar obstáculos y aprender nuevas tecnologías. ¡Explora la aplicación y descubre cómo Spring y Java se unen para brindar una experiencia de gestión de tareas fluida y eficiente!
-        </p>
-        <!-- Agrega el enlace a tu repositorio de GitHub aquí -->
-        <a href="https://github.com/EstivenPapu/listadetareas.git">¡Link a GitHub!</a>
-      </div> 
-      <div class="project">
-        <h3>InfoEmpleados</h3>
-        <p>
-          Sumergirme en el mundo de Angular fue una experiencia transformadora que me permitió crear una robusta aplicación de manipulación de información de empleados. A través de este proyecto, no solo dominé los fundamentos de Angular, sino que también apliqué conceptos esenciales como componentes, servicios y enrutamiento para lograr un funcionamiento completo del frontend.
-        </p>
-        <img src="listaempleados1.png" alt="" width="650px">
-        <p>
-          Mi enfoque en la creación, actualización, lectura y eliminación de registros (CRUD) me brindó un profundo entendimiento de cómo se maneja la información en una aplicación. Utilicé Angular junto con HTML y CSS para dar vida a una interfaz intuitiva y atractiva, permitiendo a los usuarios interactuar con la información de los empleados de manera efectiva.
-        </p>
-        <img src="listadeempleados3.png" alt="" width="650px">
-        <p>
-          Como mi primer proyecto con Angular, enfrenté desafíos emocionantes y momentos de aprendizaje. A través de la programación en TypeScript, aprendí a definir modelos, trabajar con datos y desarrollar lógica compleja para mantener la coherencia de los datos y la experiencia del usuario.
-        </p>
-        <img src="listaempleados2.png" alt="" width="650px">
-        <p>
-          A pesar de los obstáculos, este proyecto me enseñó que la perseverancia y la práctica constante son la clave para superar cualquier dificultad en el desarrollo. Desde la resolución de errores hasta el despliegue exitoso, cada paso fue una oportunidad para crecer como desarrollador y fortalecer mis habilidades.
-        </p>
-       
-        <a href="https://estivenpapu.github.io/infoempleados/" target="_blank">github pages InfoEmpleados</a>
-      </div>
-    </div>
-    
 
     <div id="sobremi" class="section" data-section="sobremi">
       <h2>Sobre Mí</h2>
       <p>Mi historia en el mundo de la programación comenzó en el colegio, donde, a pesar de no tener acceso a una computadora propia, descargaba aplicaciones para aprender sobre programación. Escondido en la clase de tecnología, aprendía en los computadores donados por el gobierno. Aunque fue difícil avanzar sin un computador, no dejé que eso me detuviera.</p>
-    
+
       <p>Luego, decidí seguir mi pasión y me uní a un curso gratuito de "Creación de videojuegos en Unity 3D" en el Sena. A pesar de las adversidades, logré hacer un juego sencillo y me destacé entre 37 personas, obteniendo el segundo lugar. Mi perseverancia y dedicación me valieron el reconocimiento y el respeto de mi profesora.</p>
     
       <p>Después de un tiempo, como adulto, trabajando en una empresa de confección, conocí a alguien que avivó mi pasión por la programación mostrándome sus increíbles proyectos. Aunque seguía sin tener un computador propio, nunca dejé de aprender. Compré un cuaderno y anotaba todo lo que podía aprender de tutoriales y cursos gratuitos en YouTube.</p>
@@ -349,18 +147,18 @@ nav a:hover::after {
     </div>
     
 
-  <div id="contacto" class="section" data-section="contacto">
-    <h2>Contacto</h2>
-    <p>Puedes contactarme a través de correo electrónico o mis redes sociales:</p>
-    <p>Email: bboypapufull7@gmail.com</p>
-    <p>Whatsapp: +573122810586 </p>
-    <!-- Agrega más detalles de contacto si lo deseas -->
-  </div>
+    <div id="contacto" class="section" data-section="contacto">
+      <h2>Contacto</h2>
+      <p>Puedes contactarme a través de correo electrónico o mis redes sociales:</p>
+      <p>Email: bboypapufull7@gmail.com</p>
+      <p>Whatsapp: +573122810586 </p>
+      <!-- Agrega más detalles de contacto si lo deseas -->
+    </div>
 
-  <footer>
+    <footer>
     <p>&copy; 2023 StivenPapu. Todos los derechos reservados.</p>
-  </footer>
-  <script>
+    </footer>
+    <script>
     particlesJS("particles-js", {
       particles: {
         number: {
@@ -466,6 +264,6 @@ nav a:hover::after {
       },
       retina_detect: true,
     });
-  </script>
-</body>
+    </script>
+  </body>
 </html>
