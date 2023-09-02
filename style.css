@@ -210,6 +210,12 @@ nav a:hover::after {
     color: var(--color4);
 }
 
+@media (max-width: 767px) {
+  .project-gallery {
+    grid-template-columns: 1fr; 
+  }
+}
+
 #particles-js {
     position: fixed;
     top: 0;
