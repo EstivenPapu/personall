@@ -46,7 +46,7 @@ header {
     align-items: center;
     justify-content: center;
     gap:20px;
-    background-color: var(--color4);
+    background-color: #1a374dd5;
     color: black;
     padding: 2rem;
     text-align: center;
@@ -138,12 +138,6 @@ nav a:hover::after {
     font-size: 1.2rem;
 }
 
-.project-gallery {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
 .contenedor{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -173,9 +167,14 @@ nav a:hover::after {
     background-color: var(--color1);
     border: none;
     padding: 5px;
-    width: calc(33.33% - 20px); /* Para mostrar 3 proyectos por fila */
     margin-bottom: 20px;
     text-align: center;
+}
+
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
 }
 
 .project img {
@@ -199,7 +198,8 @@ nav a:hover::after {
     display: block;
     margin-top: 10px;
     background-color: var(--color4);
-    width: 50%;
+    width: 50px;
+    padding: 5px;
     border-radius: 10%;
     color: var(--color1);
     text-decoration: none;
@@ -208,6 +208,12 @@ nav a:hover::after {
 .project a:hover {
     background-color: var(--color2);
     color: var(--color4);
+}
+
+@media (max-width: 767px) {
+    .project-gallery {
+        grid-template-columns: 1fr;
+    }
 }
 
 #particles-js {
